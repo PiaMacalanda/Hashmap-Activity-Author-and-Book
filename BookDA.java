@@ -33,4 +33,8 @@ public class BookDA {
             throw new RuntimeException();
         }
     }
+
+    public BookDA() {
+        //TODO Auto-generated constructor stub
+    }
 }

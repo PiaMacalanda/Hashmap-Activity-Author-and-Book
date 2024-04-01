@@ -1,11 +1,17 @@
 import java.util.HashMap;
 
 public class BookReport {
+
+    public BookReport(){
+        BookDA bookDA = new BookDA();
+    }
     public static void main (String[] args){
 
-    HashMap <Book, Author> bookReportMap = new HashMap<>();
+        new BookDA();
 
-    System.out.print("Hahahah");
+
+
+
 
     }
 }
