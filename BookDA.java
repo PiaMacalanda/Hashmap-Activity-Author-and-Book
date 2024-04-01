@@ -6,7 +6,7 @@ public class BookDA {
     private HashMap<String, Book> bookMap;
     public HashMap<String, Book> getBookMap;
 
-    public BookDA(String authorName){
+    public BookDA(String isbn){
         HashMap <String, Book> bookMap = new HashMap<>();
 
         try {
@@ -21,10 +21,11 @@ public class BookDA {
                 String[] bookLineDataSpecific = new String [3];
                 bookLineDataSpecific = bookLineData.split(",");
 
-                if(authorName.equals(bookLineDataSpecific[0].trim())){
+                if(isbn.equals(bookLineDataSpecific[0].trim())){
 
                     Book book = new Book();
                     book.setTitle(bookLineDataSpecific[1].trim());
+                    book.setName(bookLineDataSpecific[2].trim());
                 }
             }
 
