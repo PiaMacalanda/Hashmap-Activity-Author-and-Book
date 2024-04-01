@@ -10,7 +10,7 @@ public class AuthorDA {
     public HashMap<String, Author> getAuthorMap;
 
     public AuthorDA(String name){
-        HashMap <String, Author> AuthorkMap = new HashMap<>();
+        HashMap <String, Author> AuthorMap = new HashMap<>();
 
         try {
             Scanner authorFile = new Scanner(new FileReader("/workspaces/HashMapActivity/Author.csv"));
