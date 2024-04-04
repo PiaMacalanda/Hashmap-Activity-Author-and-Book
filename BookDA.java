@@ -14,6 +14,7 @@ public class BookDA {
     }
 
     public void loadData() {
+        
         try {
             try (Scanner bookInput = new Scanner(new FileReader("Book.csv"))) {
                 // Skip the header row
@@ -33,7 +34,9 @@ public class BookDA {
                     bookMap.put(book.getIsbn(), book);
                 }
             }
-        } catch (FileNotFoundException e) {
+        } 
+        
+        catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -44,6 +47,7 @@ public class BookDA {
         HashMap<String, Author> authorMap = authorDA.getAuthorMap();
 
         Author author = authorMap.get(book.getAuthorName());
+
         if (author != null) {
             book.setAuthor(author);
         }

@@ -14,10 +14,14 @@ public class BookReport {
 
         for (Book book : bookMap.values()) {
             System.out.println(book.getIsbn() + " " + book.getTitle());
+            
             Author author = book.getAuthor();
+            
             if (author != null) {
                 System.out.println("\t" + author.getName() + " - " + author.getBio() + "\n");
-            } else {
+            } 
+            
+            else {
                 System.out.println("\tAuthor information not available");
             }
         }
