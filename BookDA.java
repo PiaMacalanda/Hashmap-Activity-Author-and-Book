@@ -16,7 +16,7 @@ public class BookDA {
     public void loadData() {
         
         try {
-            try (Scanner bookInput = new Scanner(new FileReader("Book.csv"))) {
+            try (Scanner bookInput = new Scanner(new FileReader("Book1.csv"))) {
                 // Skip the header row
                 if (bookInput.hasNextLine()) {
                     bookInput.nextLine();

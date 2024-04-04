@@ -16,7 +16,7 @@ public class AuthorDA {
     public void loadData() {
         
         try {
-            try (Scanner authorInput = new Scanner(new FileReader("Author.csv"))) {
+            try (Scanner authorInput = new Scanner(new FileReader("Author1.csv"))) {
                 // Skip the header row
                 if (authorInput.hasNextLine()) {
                     authorInput.nextLine();
