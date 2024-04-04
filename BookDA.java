@@ -9,45 +9,43 @@ public class BookDA {
         return bookMap;
     }
 
-    public BookDA(){
+    public BookDA() {
         bookMap = new HashMap<>();
     }
 
     public void loadData() {
-
-        try{
-
+        try {
             try (Scanner bookInput = new Scanner(new FileReader("Book.csv"))) {
-                while(bookInput.hasNextLine()){
+                // Skip the header row
+                if (bookInput.hasNextLine()) {
+                    bookInput.nextLine();
+                }
 
-                String[] bookSplitData = bookInput.nextLine().split(",");
+                while (bookInput.hasNextLine()) {
+                    String[] bookSplitData = bookInput.nextLine().split(",");
 
-                Book book = new Book();
-                book.setIsbn(bookSplitData[0].trim());
-                book.setTitle(bookSplitData[1].trim());
-                book.setAuthorName(bookSplitData[2].trim());
+                    Book book = new Book();
+                    book.setIsbn(bookSplitData[0].trim());
+                    book.setTitle(bookSplitData[1].trim());
+                    book.setAuthorName(bookSplitData[2].trim());
 
-                setAuthor(book);
-                bookMap.put(book.getIsbn(), book);
-
+                    setAuthor(book);
+                    bookMap.put(book.getIsbn(), book);
+                }
             }
-            }
-        }
-
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void setAuthor(Book book){
+    private void setAuthor(Book book) {
         AuthorDA authorDA = new AuthorDA();
         authorDA.loadData();
         HashMap<String, Author> authorMap = authorDA.getAuthorMap();
 
         Author author = authorMap.get(book.getAuthorName());
-        if(author != null){
+        if (author != null) {
             book.setAuthor(author);
         }
     }
 }
-

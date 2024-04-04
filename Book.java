@@ -16,8 +16,8 @@ public class Book {
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
-    
-    public void setAuthor(Author author){
+
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -32,8 +32,8 @@ public class Book {
     public String getAuthorName() {
         return authorName;
     }
-    
-    public Author getAuthor(){
+
+    public Author getAuthor() {
         return author;
     }
 }
