@@ -14,6 +14,7 @@ public class AuthorDA {
     }
 
     public void loadData() {
+        
         try {
             try (Scanner authorInput = new Scanner(new FileReader("Author.csv"))) {
                 // Skip the header row
@@ -31,7 +32,9 @@ public class AuthorDA {
                     authorMap.put(author.getName(), author);
                 }
             }
-        } catch (FileNotFoundException e) {
+        } 
+        
+        catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
