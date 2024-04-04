@@ -15,6 +15,7 @@ public class BookReport{
     
         for (Book book : bookMap.values()) {
            System.out.println(book.getIsbn() + " " +book.getTitle());
+           
            Author author = authorMap.get(book.getAuthorName());
            System.out.println("\t" + author.getName() + " - " + author.getBio());
         }
