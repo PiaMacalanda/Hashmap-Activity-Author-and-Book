@@ -1,22 +1,21 @@
 public class Author {
 
-    
     private String name;
     private String bio;
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void etBio(String bio){
+    public void setBio(String bio) {
         this.bio = bio;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getbio(){
+    public String getBio() {
         return bio;
     }
 

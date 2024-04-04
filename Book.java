@@ -3,30 +3,37 @@ public class Book {
     private String isbn;
     private String title;
     private String authorName;
+    private Author author;
 
-
-    public void setIsbn(String isbn){
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setName (String authorName){
+    public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
+    
+    public void setAuthor(Author author){
+        this.author = author;
+    }
 
-    public String getIsbn(){
+    public String getIsbn() {
         return isbn;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
 
-    public String getAuthorName(){
+    public String getAuthorName() {
         return authorName;
     }
-
+    
+    public Author getAuthor(){
+        return author;
+    }
 }

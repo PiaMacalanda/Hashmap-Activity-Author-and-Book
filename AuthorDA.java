@@ -1,40 +1,39 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
+
 
 public class AuthorDA {
 
-    /**
-     * AuthorDA
-     */
-    private HashMap<String, Author> authorMap;
-    public HashMap<String, Author> getAuthorMap;
+  private HashMap<String, Author> authorMap;
 
-    public AuthorDA(String name){
-        HashMap <String, Author> AuthorMap = new HashMap<>();
+  public HashMap<String, Author> getAuthorMap(){
+    return authorMap;
+  }
 
-        try {
-            try (Scanner authorFile = new Scanner(new FileReader("/workspaces/HashMapActivity/Author.csv"))) {
-                authorMap = new HashMap<>();
-
-                while (authorFile.hasNext()) {
-                    String authorLineData = new String();
-                    authorLineData = authorFile.nextLine();
-
-                    String[] authorLineDataSpecific = new String [3];
-                    authorLineDataSpecific = authorLineData.split(",");
-
-                    if(name.equals(authorLineDataSpecific[0].trim())){
-
-                        Author author = new Author();
-                        author.setName(authorLineDataSpecific[1].trim());
-                        
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
+    public AuthorDA(){
+        authorMap = new HashMap<>();
     }
 
+  public void loadData(){
+
+        try{
+            try (Scanner authorInput = new Scanner(new FileReader("Author.csv"))) {
+                while(authorInput.hasNextLine()){
+ 
+                    String[] authorSplitData = authorInput.nextLine().split(",");
+                   
+                    Author author = new Author();
+                    author.setName(authorSplitData[0].trim());
+                    author.setBio(authorSplitData[1].trim());
+
+                    authorMap.put(author.getName(), author);
+
+                }
+            }
+        }
+
+        catch(FileNotFoundException e){
+            throw new RuntimeException(e);
+        }
+    }  
 }

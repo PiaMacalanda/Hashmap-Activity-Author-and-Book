@@ -1,17 +1,22 @@
 import java.util.HashMap;
 
-public class BookReport {
+public class BookReport{
 
-    public BookReport(){
+    public static void main(String[] args) {
+        
         BookDA bookDA = new BookDA();
-    }
-    public static void main (String[] args){
+        AuthorDA authorDA = new AuthorDA();
 
-        new BookDA();
+        bookDA.loadData();
+        authorDA.loadData();
 
-
-
-
-
+        HashMap<String, Book> bookMap = bookDA.getBookMap();
+        HashMap<String, Author> authorMap = authorDA.getAuthorMap();
+    
+        for (Book book : bookMap.values()) {
+           System.out.println(book.getIsbn() + " " +book.getTitle());
+           Author author = authorMap.get(book.getAuthorName());
+           System.out.println("\t" + author.getName() + " - " + author.getBio());
+        }
     }
 }
